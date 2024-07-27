@@ -29,5 +29,6 @@ app.use(checkForAuthCookie('token'))
 app.use(express.static(path.resolve('./public')))
 
 // Route
-app.use('/user', userRoute);
+app.use('/', userRoute)
+app.use('/user', userRoute)
 app.use('/url', urlRoute)
