@@ -29,6 +29,8 @@ app.use(checkForAuthCookie('token'))
 app.use(express.static(path.resolve('./public')))
 
 // Route
-app.use('/', userRoute)
+app.get('/', (req, res)=>{
+    return res.render('home', {user:req.user})
+})
 app.use('/user', userRoute)
 app.use('/url', urlRoute)
