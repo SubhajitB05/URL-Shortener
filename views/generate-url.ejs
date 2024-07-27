@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate URL</title>
+    <%- include('./partials/head') %>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <div class="container container-fluid mt-4">
+    <form action="/url/generate-url" method="post">
+        <div class="mb-4">
+            <h1>Generate Short URL</h1>
+          <label for="url" class="form-label">Enter URL</label>
+          <input type="text" class="form-control" id="url" aria-describedby="url" name="url" placeholder="https://www.example.com">
+        <button type="submit" class="btn btn-primary mt-3">Generate</button>
+      </form>
+    </div>
+
+    <% if (locals.shortUrl) { %>
+      <div class="container mt-5">
+        <p>URL generated: <span style="color:red">http://localhost:8002/url/<%= locals.shortUrl %></span></p>
+      </div>
+    <% } %>
+    <%- include('./partials/script') %>
+</body>
+</html>
